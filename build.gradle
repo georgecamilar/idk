@@ -1,0 +1,20 @@
+group 'mpp'
+version 1.0
+
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+mainClassName = 'run.Run'
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project("backend")
+}
