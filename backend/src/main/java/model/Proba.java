@@ -1,6 +1,8 @@
 package model;
 
-public class Proba {
+import java.io.Serializable;
+
+public class Proba implements HasId<Integer>, Serializable {
     private Integer id;
     private String nume;
 

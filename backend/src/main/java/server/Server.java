@@ -7,89 +7,91 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
+
 public class Server {
-    private ArrayList<ConnectionToClient> clientList;
-    private LinkedBlockingQueue<Object> messages;
+
     private ServerSocket serverSocket;
+    private LinkedBlockingQueue<Object> messages;
+    private ArrayList<ConnectionToClient> clientList;
+
 
     public Server(int port) throws IOException {
-        clientList = new ArrayList<ConnectionToClient>();
-        messages = new LinkedBlockingQueue<Object>();
+        clientList = new ArrayList<>();
         serverSocket = new ServerSocket(port);
+        messages = new LinkedBlockingQueue<>();
 
-        Thread accept = new Thread() {
-            public void run(){
-                while(true){
-                    try{
-                        Socket s = serverSocket.accept();
-                        clientList.add(new ConnectionToClient(s));
-                    }
-                    catch(IOException e){ e.printStackTrace(); }
+        Thread acceptThread = new Thread(() -> {
+            while (true) {
+                try {
+                    Socket socket = serverSocket.accept();
+                    clientList.add(new ConnectionToClient(socket));
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-        };
+        });
 
-        accept.setDaemon(true);
-        accept.start();
+        Thread messageThread = new Thread(() -> {
+            while (true) {
+                try {
+                    Object message = messages.take();
 
-        Thread messageHandling = new Thread() {
-            public void run(){
-                while(true){
-                    try{
-                        Object message = messages.take();
-                        // Do some handling here...
-                        System.out.println("Message Received: " + message);
-                    }
-                    catch(InterruptedException e){ }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
-        };
+        });
 
-        messageHandling.setDaemon(true);
-        messageHandling.start();
+
+        acceptThread.setDaemon(true);
+        acceptThread.start();
     }
 
     private class ConnectionToClient {
-        ObjectInputStream in;
-        ObjectOutputStream out;
-        Socket socket;
+        private ObjectInputStream inputStream;
+        private ObjectOutputStream outputStream;
+        private Socket socket;
 
         ConnectionToClient(Socket socket) throws IOException {
             this.socket = socket;
-            in = new ObjectInputStream(socket.getInputStream());
-            out = new ObjectOutputStream(socket.getOutputStream());
+            this.outputStream = new ObjectOutputStream(socket.getOutputStream());
+            this.inputStream = new ObjectInputStream(socket.getInputStream());
 
-            Thread read = new Thread(){
-                public void run(){
-                    while(true){
-                        try{
-                            Object obj = in.readObject();
-                            messages.put(obj);
-                        }
-                        catch(IOException | ClassNotFoundException | InterruptedException e){ e.printStackTrace(); }
+            Thread read = new Thread(() -> {
+                while (true) {
+                    try {
+                        Object object = inputStream.read();
+                        messages.put(object);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
                     }
                 }
-            };
+            });
 
-            read.setDaemon(true); // terminate when main ends
+            read.setDaemon(true);
             read.start();
         }
 
-        public void write(Object obj) {
-            try{
-                out.writeObject(obj);
+        public void write(Object object) {
+            try {
+                outputStream.writeObject(object);
+                outputStream.flush();
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
-            catch(IOException e){ e.printStackTrace(); }
         }
     }
 
-    public void sendToOne(int index, Object message)throws IndexOutOfBoundsException {
-        clientList.get(index).write(message);
+    public void sendToOne(int index, Object object) throws IndexOutOfBoundsException {
+        clientList.get(index).write(object);
     }
 
-    public void sendToAll(Object message){
-        for(ConnectionToClient client : clientList)
-            client.write(message);
+    public void sendToAll(Object object) {
+        clientList.forEach(client -> {
+            client.write(object);
+        });
     }
-
 }
+
+
