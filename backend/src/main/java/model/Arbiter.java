@@ -3,28 +3,38 @@ package model;
 import javax.persistence.*;
 import java.io.Serializable;
 
-//@Entity
-//@Table(name = "arbiter")
 public class Arbiter implements Serializable, HasId<Integer> {
-    //    @Id
-//    @GeneratedValue
-//    @Column(name = "arbiterId")
     private Integer id;
 
-    //    @Column(name = "username")
     private String username;
 
-    //    @Column(name = "password")
     private String password;
 
+    private Integer probaId;
 
     public Arbiter() {
     }
 
-    public Arbiter(Integer id,String username, String password) {
+    public Integer getProbaId() {
+        return probaId;
+    }
+
+    public void setProbaId(Integer probaId) {
+        this.probaId = probaId;
+    }
+
+    public Arbiter(Integer id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.probaId = -1;
+    }
+
+    public Arbiter(Integer id, String username, String password, Integer probaId) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.probaId = probaId;
     }
 
     public Integer getId() {
@@ -51,5 +61,5 @@ public class Arbiter implements Serializable, HasId<Integer> {
         this.password = password;
     }
 
-   
+
 }

@@ -10,22 +10,15 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Run {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Properties properties = new Properties();
-        try{
+        try {
             properties.load(new FileReader("src/main/resources/bd.config"));
 
-            Controller controller = new Controller(new ArbiterRepository(properties, "arbiter"));
+            Controller controller = new Controller(properties);
             System.out.println("Created controller");
-            
-            controller.saveArbiter(new Arbiter(1, "mike","mike"));
-            
-            controller.findAllArbiter().forEach(e -> {
-                System.out.printf("Arbiter %d %s %s",e.getId(),e.getUsername(),e.getPassword());
-            });
 
-            controller.deleteArbiterById(1);
-            
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

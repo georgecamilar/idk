@@ -3,8 +3,9 @@ package model;
 import java.io.Serializable;
 
 public class Proba implements HasId<Integer>, Serializable {
+
     private Integer id;
-    private String nume;
+    private Integer arbiterId;
 
     public Integer getId() {
         return id;
@@ -14,16 +15,16 @@ public class Proba implements HasId<Integer>, Serializable {
         this.id = id;
     }
 
-    public String getNume() {
-        return nume;
-    }
-
-    public void setNume(String nume) {
-        this.nume = nume;
-    }
-
-    public Proba(Integer id, String nume) {
+    public Proba(Integer id, Integer arbiterId) {
         this.id = id;
-        this.nume = nume;
+        this.arbiterId = arbiterId;
+    }
+
+    public Integer getArbiterId() {
+        return arbiterId;
+    }
+
+    public void setArbiterId(Integer arbiterId) {
+        this.arbiterId = arbiterId;
     }
 }

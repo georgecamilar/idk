@@ -1314,26 +1314,128 @@
       <DefaultForCharset>0</DefaultForCharset>
     </collation>
     <table id="330" parent="3" name="arbiter"/>
-    <column id="331" parent="330" name="id">
+    <table id="331" parent="3" name="nota"/>
+    <table id="332" parent="3" name="participant"/>
+    <table id="333" parent="3" name="proba"/>
+    <column id="334" parent="330" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="332" parent="330" name="username">
+    <column id="335" parent="330" name="username">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="333" parent="330" name="password">
+    <column id="336" parent="330" name="password">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="334" parent="330" name="PRIMARY">
+    <column id="337" parent="330" name="idProba">
+      <Position>4</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="338" parent="330" name="idProba">
+      <ColNames>idProba</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="339" parent="330" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
+    <foreign-key id="340" parent="330" name="arbiter_ibfk_1">
+      <ColNames>idProba</ColNames>
+      <RefTableName>proba</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="341" parent="331" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="342" parent="331" name="idParticipant">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="343" parent="331" name="idProba">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="344" parent="331" name="nota">
+      <Position>4</Position>
+      <DataType>double|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="345" parent="331" name="idParticipant">
+      <ColNames>idParticipant</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="346" parent="331" name="idProba">
+      <ColNames>idProba</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="347" parent="331" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="348" parent="331" name="nota_ibfk_1">
+      <ColNames>idParticipant</ColNames>
+      <RefTableName>participant</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="349" parent="331" name="nota_ibfk_2">
+      <ColNames>idProba</ColNames>
+      <RefTableName>proba</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="350" parent="332" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="351" parent="332" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="352" parent="332" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="353" parent="333" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="354" parent="333" name="idArbiter">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="355" parent="333" name="idArbiter">
+      <ColNames>idArbiter</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="356" parent="333" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="357" parent="333" name="proba_ibfk_1">
+      <ColNames>idArbiter</ColNames>
+      <RefTableName>arbiter</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>

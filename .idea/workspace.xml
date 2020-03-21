@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6448db63-a7e5-4d0d-922d-dbe31a57e86d" name="Default Changelist" comment="" />
+    <list default="true" id="6448db63-a7e5-4d0d-922d-dbe31a57e86d" name="Default Changelist" comment="Created Server and ConnectionController class structure for socket connection">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/controller/ControllerRest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ff52d3ee-7ed3-45a0-911b-e2599687c6a8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ff52d3ee-7ed3-45a0-911b-e2599687c6a8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/controller/RestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/model/Arbiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/model/Arbiter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/model/Proba.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/model/Proba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/repositories/ArbiterRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/repositories/MppRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/repositories/MppRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/repositories/MppRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/run/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/Run.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,6 +88,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1Z7XVMpkOgb8iHeslYipZCXpGsN" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -80,13 +100,14 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files/SceneBuilder/SceneBuilder.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -194,12 +215,12 @@
             <expand>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:mpp@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="mpp@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="root:mpp@localhost" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@613443a0" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="mpp@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@239bd3d9" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -221,7 +242,25 @@
       <workItem from="1584191131758" duration="15439000" />
       <workItem from="1584207986641" duration="201000" />
       <workItem from="1584208205473" duration="4750000" />
+      <workItem from="1584261418818" duration="90000" />
+      <workItem from="1584273338420" duration="2322000" />
+      <workItem from="1584336174569" duration="631000" />
+      <workItem from="1584447349721" duration="1319000" />
+      <workItem from="1584450545843" duration="1179000" />
+      <workItem from="1584452109470" duration="735000" />
+      <workItem from="1584632564831" duration="5808000" />
+      <workItem from="1584686494100" duration="57000" />
+      <workItem from="1584776216394" duration="6233000" />
+      <workItem from="1584783681111" duration="3445000" />
     </task>
+    <task id="LOCAL-00001" summary="Created Server and ConnectionController class structure for socket connection">
+      <created>1584636727778</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1584636727778</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,11 +269,15 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.config" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Created Server and ConnectionController class structure for socket connection" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Server and ConnectionController class structure for socket connection" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="183" key="#Inspections" timestamp="1584195819591">
+    <state x="552" y="183" key="#Inspections" timestamp="1584777799530">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="183" key="#Inspections/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584195819591" />
+    <state x="552" y="183" key="#Inspections/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584777799530" />
     <state x="552" y="183" key="#Project_Structure" timestamp="1584201071005">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -251,30 +294,38 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="696" y="327" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584201806068" />
-    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1584211019750">
+    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1584787002417">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584211019750" />
+    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584787002417" />
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584777050859">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584777050859" />
+    <state x="451" y="116" key="CommitChangelistDialog2" timestamp="1584636726659">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="451" y="116" key="CommitChangelistDialog2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584636726659" />
     <state x="740" y="265" key="FileChooserDialogImpl" timestamp="1584206452202">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="265" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584206452202" />
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1584207802000">
+    <state width="1294" height="285" key="GridCell.Tab.0.bottom" timestamp="1584783552817">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584207802000" />
-    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1584207802000">
+    <state width="1294" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584783552817" />
+    <state width="1294" height="285" key="GridCell.Tab.0.center" timestamp="1584783552816">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584207802000" />
-    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1584207802000">
+    <state width="1294" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584783552816" />
+    <state width="1294" height="285" key="GridCell.Tab.0.left" timestamp="1584783552816">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584207802000" />
-    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1584207802000">
+    <state width="1294" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584783552816" />
+    <state width="1294" height="285" key="GridCell.Tab.0.right" timestamp="1584783552817">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1877" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584207802000" />
+    <state width="1294" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584783552817" />
     <state width="1877" height="351" key="GridCell.Tab.1.bottom" timestamp="1584205904770">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -291,32 +342,34 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state width="1877" height="351" key="GridCell.Tab.1.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584205904770" />
-    <state x="461" y="166" key="SettingsEditor" timestamp="1584210153585">
+    <state x="622" y="235" key="RollbackChangesDialog" timestamp="1584777162765">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="166" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584210153585" />
-    <state x="640" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584208423578">
+    <state x="622" y="235" key="RollbackChangesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584777162765" />
+    <state x="461" y="166" key="SettingsEditor" timestamp="1584786738282">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="640" y="349" key="com.intellij.ide.util.TipDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584208423578" />
+    <state x="461" y="166" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1584285458411" />
+    <state x="461" y="166" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584786738282" />
+    <state x="551" y="257" key="Vcs.Push.Dialog.v2" timestamp="1584636739408">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="551" y="257" key="Vcs.Push.Dialog.v2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584636739408" />
+    <state x="640" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584686543158">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="640" y="349" key="com.intellij.ide.util.TipDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584686543158" />
+    <state x="545" y="221" width="830" height="608" key="find.popup" timestamp="1584633290696">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="545" y="221" width="830" height="608" key="find.popup/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584633290696" />
     <state x="342" y="114" key="new project wizard" timestamp="1584206185632">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="342" y="114" key="new project wizard/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584206185632" />
-    <state x="623" y="227" key="search.everywhere.popup" timestamp="1584200916463">
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1584458781159">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="623" y="227" key="search.everywhere.popup/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584200916463" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/repositories/ArbiterRepository.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584458781159" />
   </component>
 </project>
