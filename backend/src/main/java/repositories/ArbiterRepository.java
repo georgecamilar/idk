@@ -85,7 +85,7 @@ public class ArbiterRepository extends AbstractRepo<Integer, Arbiter> {
     @Override
     public void deleteById(Integer integer) {
         Connection connection = dbConnection.getConnection();
-        String query = "delete  from Arbiter where id=? ";
+        String query = "delete  from arbiter where id=? ";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, integer);
@@ -97,5 +97,28 @@ public class ArbiterRepository extends AbstractRepo<Integer, Arbiter> {
     @Override
     public void delete(Arbiter arbiter) {
         deleteById(arbiter.getId());
+    }
+
+    public Arbiter findByUsername(String username) {
+        Arbiter result = null;
+        Connection connection = dbConnection.getConnection();
+        String query = "select * from arbiter where username=?";
+
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, username);
+
+            ResultSet set = statement.executeQuery();
+            if (set.next()) {
+                result = new Arbiter(
+                        set.getInt("id"),
+                        set.getString("username"),
+                        set.getString("password"),
+                        set.getInt("idProba"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 }

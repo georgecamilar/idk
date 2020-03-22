@@ -102,4 +102,52 @@ public class NotaRepository extends AbstractRepo<Integer, Nota> {
     public void delete(Nota nota) {
         deleteById(nota.getId());
     }
+    
+    public Nota findByProbaId(Integer probaid){
+        Nota result = null;
+
+        Connection connection = dbConnection.getConnection();
+        String query = "select * from nota where idProba=?";
+
+        try (PreparedStatement  preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, probaid);
+
+            ResultSet set = preparedStatement.executeQuery();
+            if (set.next()) {
+                int id = set.getInt("id");
+                int idParticipant = set.getInt("idParticipant");
+                int idProba = set.getInt("idProba");
+                double nota = set.getDouble("nota");
+
+                result = new Nota(id, idParticipant, idProba, nota);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
+    
+    public Nota findByParticipantId(Integer participantId){
+        Nota result = null;
+
+        Connection connection = dbConnection.getConnection();
+        String query = "select * from nota where idParticipant=?";
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setInt(1, participantId);
+
+            ResultSet set = preparedStatement.executeQuery();
+            if (set.next()) {
+                int id = set.getInt("id");
+                int idParticipant = set.getInt("idParticipant");
+                int idProba = set.getInt("idProba");
+                double nota = set.getDouble("nota");
+
+                result = new Nota(id, idParticipant, idProba, nota);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
+    }
 }

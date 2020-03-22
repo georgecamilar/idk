@@ -1,11 +1,14 @@
 package server;
 
+import controller.Service;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Properties;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class Server {
@@ -13,9 +16,10 @@ public class Server {
     private ServerSocket serverSocket;
     private LinkedBlockingQueue<Object> messages;
     private ArrayList<ConnectionToClient> clientList;
+    private Service service;
 
-
-    public Server(int port) throws IOException {
+    public Server(int port, Properties props) throws IOException {
+        service = new Service(props);
         clientList = new ArrayList<>();
         serverSocket = new ServerSocket(port);
         messages = new LinkedBlockingQueue<>();

@@ -1,0 +1,44 @@
+create table arbiter(id int primary key ,username varchar(20),password varchar(20), idProba int references proba(id));
+create table participant(id int primary key ,name varchar(20));
+create table proba(id int primary key, idArbiter int, foreign key (idArbiter) references arbiter(id));
+create table nota(id int primary key ,idParticipant int, idProba int, nota double, foreign key (idParticipant) references participant(id), foreign key (idProba) references proba(id));
+
+
+alter table arbiter add foreign key (idProba) references proba(id);
+
+drop table mpp.arbiter;
+drop table mpp.nota;
+
+insert into arbiter values(1,'mike','mike', 1);
+insert into arbiter values(2,'user2','user2', 2);
+insert into arbiter values(3,'user3','user3', 3);
+insert into arbiter values(4,'user4','user4', 4);
+insert into arbiter values(6,'user6','user6', 6);
+insert into arbiter values(5,'user5','user5', 5);
+
+insert into proba(proba.id, proba.idArbiter) values (1,1);
+insert into proba(proba.id, proba.idArbiter) values (2,2);
+insert into proba(proba.id, proba.idArbiter) values (3,3);
+insert into proba(proba.id, proba.idArbiter) values (4,4);
+insert into proba(proba.id, proba.idArbiter) values (5,5);
+insert into proba(proba.id, proba.idArbiter) values (6,6);
+
+delete from arbiter where id=1;
+
+update proba set proba.idArbiter = 2 where id=2;
+update proba set proba.idArbiter = 3 where id=3;
+update proba set proba.idArbiter = 4 where id=4;
+update proba set proba.idArbiter = 5 where id=5;
+update proba set proba.idArbiter = 6 where id=6;
+
+
+
+delete from proba where proba.idArbiter IS NULL;
+
+drop table proba;
+
+select * from arbiter;
+select * from proba;
+select * from participant;
+select * from nota;
+

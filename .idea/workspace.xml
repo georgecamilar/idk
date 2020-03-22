@@ -2,21 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6448db63-a7e5-4d0d-922d-dbe31a57e86d" name="Default Changelist" comment="Created Server and ConnectionController class structure for socket connection">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/controller/ControllerRest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/controller/ControllerRest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/controller/Service.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/model/Arbiter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/model/HasId.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/model/Nota.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/model/Participant.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/model/Proba.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/repositories/AbstractRepo.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/repositories/ArbiterRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/repositories/MppRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/repositories/NotaRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/repositories/ParticipantRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/repositories/ProbaRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/server/Server$ConnectionToClient.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/server/Server.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/build/classes/java/main/utils/DatabaseConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ff52d3ee-7ed3-45a0-911b-e2599687c6a8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ff52d3ee-7ed3-45a0-911b-e2599687c6a8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/controller/RestController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/model/Arbiter.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/model/Arbiter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/model/Proba.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/model/Proba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/repositories/ArbiterRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/repositories/MppRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/repositories/MppRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/repositories/MppRepositoryImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/controller/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/repositories/ArbiterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/repositories/ArbiterRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/repositories/NotaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/repositories/NotaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/resources/LoginScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/resources/LoginScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/run/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/Run.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -103,25 +121,28 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\george.camilar\Documents\mpp\src\main\resources" />
-      <recent name="C:\Users\george.camilar\Documents\mpp\src\main\resources\config" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\george.camilar\Documents\mpp\backend\src\main\resources" />
-    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="repositories" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\george.camilar\Documents\mpp\idk\backend\src\main\resources" />
+      <recent name="C:\Users\george.camilar\Documents\mpp\idk\backend\src\main\java" />
+      <recent name="C:\Users\george.camilar\Documents\mpp\backend\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\george.camilar\Documents\mpp\idk\src\main\resources" />
+      <recent name="C:\Users\george.camilar\Documents\mpp\src\main\resources" />
+      <recent name="C:\Users\george.camilar\Documents\mpp\src\main\resources\config" />
+    </key>
   </component>
-  <component name="RunManager" selected="Gradle.mpp [clean]">
+  <component name="RunManager" selected="Gradle.mpp [clean run]">
     <configuration name="Run" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="run.Run" />
       <module name="mpp.main" />
@@ -220,7 +241,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="mpp@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@239bd3d9" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@3c4d0555" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -251,7 +272,12 @@
       <workItem from="1584632564831" duration="5808000" />
       <workItem from="1584686494100" duration="57000" />
       <workItem from="1584776216394" duration="6233000" />
-      <workItem from="1584783681111" duration="3445000" />
+      <workItem from="1584783681111" duration="6704000" />
+      <workItem from="1584793373901" duration="76000" />
+      <workItem from="1584793472520" duration="4321000" />
+      <workItem from="1584799831394" duration="2590000" />
+      <workItem from="1584807208621" duration="3485000" />
+      <workItem from="1584864783944" duration="1204000" />
     </task>
     <task id="LOCAL-00001" summary="Created Server and ConnectionController class structure for socket connection">
       <created>1584636727778</created>
@@ -286,18 +312,26 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="183" key="#SQL_Dialects/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584199281175" />
-    <state x="552" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584210967608">
+    <state x="552" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584866408062">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="552" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584210967608" />
+    <state x="552" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584866408062" />
     <state x="696" y="327" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1584201806068">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="696" y="327" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584201806068" />
-    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1584787002417">
+    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1584863831533">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584787002417" />
+    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584863831533" />
+    <state x="721" y="365" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1584796487934">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="721" y="365" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584796487934" />
+    <state x="524" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1584793043848">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="524" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584793043848" />
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1584777050859">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -310,22 +344,22 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="265" key="FileChooserDialogImpl/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584206452202" />
-    <state width="1294" height="285" key="GridCell.Tab.0.bottom" timestamp="1584783552817">
+    <state width="1879" height="284" key="GridCell.Tab.0.bottom" timestamp="1584866592659">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1294" height="285" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584783552817" />
-    <state width="1294" height="285" key="GridCell.Tab.0.center" timestamp="1584783552816">
+    <state width="1879" height="284" key="GridCell.Tab.0.bottom/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584866592659" />
+    <state width="1879" height="284" key="GridCell.Tab.0.center" timestamp="1584866592659">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1294" height="285" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584783552816" />
-    <state width="1294" height="285" key="GridCell.Tab.0.left" timestamp="1584783552816">
+    <state width="1879" height="284" key="GridCell.Tab.0.center/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584866592659" />
+    <state width="1879" height="284" key="GridCell.Tab.0.left" timestamp="1584866592659">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1294" height="285" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584783552816" />
-    <state width="1294" height="285" key="GridCell.Tab.0.right" timestamp="1584783552817">
+    <state width="1879" height="284" key="GridCell.Tab.0.left/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584866592659" />
+    <state width="1879" height="284" key="GridCell.Tab.0.right" timestamp="1584866592659">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1294" height="285" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584783552817" />
+    <state width="1879" height="284" key="GridCell.Tab.0.right/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584866592659" />
     <state width="1877" height="351" key="GridCell.Tab.1.bottom" timestamp="1584205904770">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -346,19 +380,27 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="622" y="235" key="RollbackChangesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584777162765" />
-    <state x="461" y="166" key="SettingsEditor" timestamp="1584786738282">
+    <state x="461" y="166" key="SettingsEditor" timestamp="1584802420504">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="166" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1584285458411" />
-    <state x="461" y="166" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584786738282" />
+    <state x="461" y="166" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584802420504" />
     <state x="551" y="257" key="Vcs.Push.Dialog.v2" timestamp="1584636739408">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="551" y="257" key="Vcs.Push.Dialog.v2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584636739408" />
-    <state x="640" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584686543158">
+    <state x="640" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1584864784232">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="640" y="349" key="com.intellij.ide.util.TipDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584686543158" />
+    <state x="640" y="349" key="com.intellij.ide.util.TipDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584864784232" />
+    <state x="741" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584801955747">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="741" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584801955747" />
+    <state x="690" y="289" key="extract.method.dialog" timestamp="1584800974215">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="289" key="extract.method.dialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584800974215" />
     <state x="545" y="221" width="830" height="608" key="find.popup" timestamp="1584633290696">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
