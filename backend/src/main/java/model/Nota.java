@@ -4,16 +4,10 @@ package model;
 //This is the participant-proba table
 public class Nota implements HasId<Integer> {
     private Integer id;
+    private Integer participantId;
+    private Integer probaId;
+    private Double nota;
 
-    @Override
-    public Integer getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public Nota(Integer id, Integer participantId, Integer probaId, Double nota) {
         this.id = id;
@@ -22,9 +16,6 @@ public class Nota implements HasId<Integer> {
         this.nota = nota;
     }
 
-    private Integer participantId;
-    private Integer probaId;
-    private Double nota;
 
     public Nota(Integer participantId, Integer probaId, Double nota) {
         this.participantId = participantId;
@@ -56,4 +47,13 @@ public class Nota implements HasId<Integer> {
         this.nota = nota;
     }
 
+    @Override
+    public Integer getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
+    }
 }

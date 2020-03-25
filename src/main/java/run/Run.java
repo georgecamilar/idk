@@ -1,16 +1,10 @@
 package run;
 
-import controller.Service;
+import interfaces.Controller;
+import interfaces.MainController;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.Properties;
 
 public class Run extends Application {
     public static void main(String[] args) {
@@ -19,11 +13,10 @@ public class Run extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/Start.fxml"));
-        Scene scene = new Scene(root);
+        Controller controller = new Controller();
+        primaryStage.setScene(new Scene(controller, 500, 500));
         primaryStage.setTitle("Application");
-        primaryStage.setScene(scene);
-        
+        controller.setStage(primaryStage);
         primaryStage.show();
     }
 }

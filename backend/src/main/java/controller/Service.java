@@ -30,11 +30,11 @@ public class Service {
         notaRepository = new NotaRepository(props);
     }
 
-    public boolean login(String username, String password) {
+    public Integer login(String username, String password) {
         if (arbiterRepository.findByUsername(username).getPassword().equals(password)) {
-            return Boolean.TRUE;
+            return arbiterRepository.findByUsername(username).getId();
         }
-        return Boolean.FALSE;
+        return -1;
     }
 
 
@@ -102,6 +102,16 @@ public class Service {
         return participantRepository.findAll();
     }
 
+    public List<String> participantList() {
+        List<String> result = new ArrayList<>();
+
+        this.allParticipant().forEach(element -> {
+            result.add(element.getName());
+        });
+
+        return result;
+    }
+
     public Nota saveNota(Nota nota) {
         try {
             return this.notaRepository.save(nota);
@@ -136,8 +146,21 @@ public class Service {
             if (element.getProbaId().equals(probaId)) {
                 result.add(element);
             }
-        });
-
+        })
+        ;
         return test;
+    }
+
+    public List<Participant> getAllTotalScores() {
+        List<Participant> list = new ArrayList<>();
+        for (Participant participant : participantRepository.findAll()) {
+            Double grade = 0d;
+            for (Nota nota : notaRepository.findByParticipantId(participant.getId())) {
+                grade += nota.getNota();
+            }
+            participant.setTotal(grade);
+            list.add(participant);
+        }
+        return list;
     }
 }
