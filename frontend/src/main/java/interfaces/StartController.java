@@ -3,7 +3,7 @@ package interfaces;
 import com.Request;
 import com.RequestType;
 import com.Response;
-import javafx.application.Platform;
+import connection.ConnectionController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,19 +17,17 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-public class Controller extends AnchorPane {
-
+public class StartController extends AnchorPane implements FrontendController {
+    private ConnectionController connectionController;
     Stage stage;
     private Socket socket;
     private ObjectOutputStream output;
     private ObjectInputStream input;
-    private volatile boolean done;
     Thread thread;
 
-    public Controller(String ipAddress, Integer port) {
+    public StartController(String ipAddress, Integer port) {
         try {
-            done = false;
-            socket = new Socket("localhost", 12345);
+            socket = new Socket(ipAddress, port);
             input = new ObjectInputStream(socket.getInputStream());
             output = new ObjectOutputStream(socket.getOutputStream());
 
@@ -37,10 +35,6 @@ public class Controller extends AnchorPane {
             loader.setRoot(this);
             loader.setController(this);
             loader.load();
-
-            thread = new Thread(new ReaderThread());
-            thread.setDaemon(true);
-            thread.start();
 
         } catch (IOException ex) {
             System.err.println(ex.getMessage());
@@ -69,22 +63,15 @@ public class Controller extends AnchorPane {
 
     public void responseLogin(Response response) {
         if ((Integer) response.content() > -1) {
-            this.stage.close();
-            try {
-                input.close();
-                output.close();
-                socket.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            MainController mainController = new MainController((Integer) response.content(), this.usernameField.getText(), connectionController);
+            connectionController.setController(mainController);
 
-            MainController mainController = new MainController((Integer) response.content(), usernameField.getText(), socket, input, output);
-//            MainController mainController = new MainController((Integer) response.content(), usernameField.getText());
+            this.stage.close();
             Stage stage = new Stage();
             stage.setScene(new Scene(mainController));
             mainController.setStage(stage);
             stage.show();
-            done = true;
+
             try {
                 thread.join();
             } catch (InterruptedException e) {
@@ -103,20 +90,11 @@ public class Controller extends AnchorPane {
         this.stage = stage;
     }
 
-    class ReaderThread implements Runnable {
+    public ConnectionController getConnectionController() {
+        return connectionController;
+    }
 
-        @Override
-        public void run() {
-            while (!done) {
-                try {
-                    Response in = (Response) input.readObject();
-                    Platform.runLater(() -> responseLogin(in));
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+    public void setConnectionController(ConnectionController connectionController) {
+        this.connectionController = connectionController;
     }
 }

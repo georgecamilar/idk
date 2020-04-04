@@ -4,6 +4,7 @@ import com.Request;
 import com.RequestType;
 import com.Response;
 import com.ResponseType;
+import connection.ConnectionController;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -29,8 +30,9 @@ import java.net.Socket;
 import java.util.List;
 
 
-public class MainController extends AnchorPane {
+public class MainController extends AnchorPane implements FrontendController {
 
+    private ConnectionController network;
 
     @FXML
     Label arbiterLabel;
@@ -61,39 +63,17 @@ public class MainController extends AnchorPane {
 
     public final ObservableList<Participant> dataSource = FXCollections.observableArrayList();
 
-    public MainController(Integer id, String name, Socket socket, ObjectInputStream inputStream, ObjectOutputStream outputStream) {
+
+    public MainController(Integer id, String name, ConnectionController connectionController) {
+        this.network = connectionController;
         this.idUser = id;
         this.name = name;
         stage = new Stage();
-        done = true;
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainWindow.fxml"));
         loader.setRoot(this);
         loader.setController(this);
         try {
             loader.load();
-
-            this.socket = socket;
-            this.input = inputStream;
-            this.output = outputStream;
-        } catch (IOException e) {
-            System.err.println("[ERROR] " + e.getMessage());
-        }
-    }
-
-    public MainController(Integer id, String name) {
-        this.idUser = id;
-        this.name = name;
-        stage = new Stage();
-        done = true;
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainWindow.fxml"));
-        loader.setRoot(this);
-        loader.setController(this);
-        try {
-            loader.load();
-
-            this.socket = new Socket("localhost", 12345);
-            this.input = new ObjectInputStream(socket.getInputStream());
-            this.output = new ObjectOutputStream(socket.getOutputStream());
         } catch (IOException e) {
             System.err.println("[ERROR] " + e.getMessage());
         }
@@ -166,29 +146,4 @@ public class MainController extends AnchorPane {
 
     }
 
-    class ReadThread implements Runnable {
-
-        @Override
-        public void run() {
-            while (!done) {
-                try {
-                    Response response = (Response) input.readObject();
-
-                    if (isUpdate(response)) {
-                        //add
-                    } else {
-                        Platform.runLater(() -> responseTotalScores(response));
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    private boolean isUpdate(Response response) {
-        return ResponseType.ADD == response.type();
-    }
 }

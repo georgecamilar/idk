@@ -2,53 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6448db63-a7e5-4d0d-922d-dbe31a57e86d" name="Default Changelist" comment="Created Server and ConnectionController class structure for socket connection">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/interfaces/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/main/java/interfaces/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/jarAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/controller/Service.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/controller/Service.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/interfaces/Controller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/interfaces/MainController$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/interfaces/MainController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/model/Nota.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/model/Nota.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/repositories/NotaRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/repositories/NotaRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/repositories/ParticipantRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/repositories/ParticipantRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/server/Server$ConnectionToClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/server/Server$ConnectionToClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/classes/java/main/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/classes/java/main/server/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/libs/backend-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/libs/backend-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/build/resources/main/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/build/resources/main/MainWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/controller/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/controller/Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/interfaces/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/interfaces/MainController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/model/Nota.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/model/Nota.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/repositories/NotaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/repositories/NotaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/repositories/ParticipantRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/repositories/ParticipantRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/MainWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/MainWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/run/Run.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/run/Run.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/java/connection/ConnectionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/connection/ConnectionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/interfaceControllers/InterfaceController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/interfaceControllers/LoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/connection/OneController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/connection/OneController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/interfaces/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/interfaces/StartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/java/interfaces/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/interfaces/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/java/run/RunClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/java/run/RunClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/run/Run.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/run/Run.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,8 +73,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -146,7 +105,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -374,7 +333,7 @@
       <workItem from="1585837706104" duration="12391000" />
       <workItem from="1585917042693" duration="4219000" />
       <workItem from="1585922005164" duration="6307000" />
-      <workItem from="1585992832755" duration="386000" />
+      <workItem from="1585992832755" duration="2650000" />
     </task>
     <task id="LOCAL-00001" summary="Created Server and ConnectionController class structure for socket connection">
       <created>1584636727778</created>
@@ -434,10 +393,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="696" y="327" key="#com.intellij.fileTypes.FileTypeChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584201806068" />
-    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1585918155429">
+    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1585999852546">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1585918155429" />
+    <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1585999852546" />
     <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1585489892529" />
     <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050@0.0.1920.1050" timestamp="1585619483481" />
     <state x="765" y="241" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1585164534240" />
@@ -534,11 +493,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="622" y="235" key="RollbackChangesDialog/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1584777162765" />
-    <state x="131" y="159" width="1330" height="718" key="SettingsEditor" timestamp="1585993221716">
+    <state x="131" y="159" width="1330" height="718" key="SettingsEditor" timestamp="1585993869893">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="369" y="127" width="914" height="707" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1585991713717" />
-    <state x="131" y="159" width="1330" height="718" key="SettingsEditor/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1585993221716" />
+    <state x="131" y="159" width="1330" height="718" key="SettingsEditor/0.0.1920.1050/1920.0.1536.834@0.0.1920.1050" timestamp="1585993869893" />
     <state x="461" y="166" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1050@0.0.1920.1050" timestamp="1585573964669" />
     <state x="461" y="166" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585619692302" />
     <state x="498" y="182" width="998" height="708" key="SettingsEditor/1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1585235699959" />
@@ -595,11 +554,6 @@
           <url>file://$PROJECT_DIR$/frontend/src/main/java/interfaces/MainController.java</url>
           <line>135</line>
           <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/main/java/server/SocketConcurrentServer.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
