@@ -6,9 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class NotaRepository extends AbstractRepo<Integer, Nota> {
 
@@ -18,13 +16,16 @@ public class NotaRepository extends AbstractRepo<Integer, Nota> {
 
     @Override
     public Nota save(Nota nota) throws Exception {
+        
+        
         Connection connection = dbConnection.getConnection();
-        String query = "insert into table values (?,?,?)";
+        String query = "insert into nota values (?,?,?,?)";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, nota.getParticipantId());
-            preparedStatement.setInt(2, nota.getProbaId());
-            preparedStatement.setDouble(3, nota.getNota());
+            preparedStatement.setInt(1,this.getLastId()+1);
+            preparedStatement.setInt(2, nota.getParticipantId());
+            preparedStatement.setInt(3, nota.getProbaId());
+            preparedStatement.setDouble(4, nota.getNota());
 
 
             if (!preparedStatement.execute()) {
@@ -34,6 +35,21 @@ public class NotaRepository extends AbstractRepo<Integer, Nota> {
             ex.printStackTrace();
         }
         return nota;
+    }
+
+    private int getLastId() {
+        Connection connection = dbConnection.getConnection();
+        try(PreparedStatement statement = connection.prepareStatement("select * from nota")){
+            try(ResultSet result = statement.executeQuery()) {
+                if (result.next()) {
+                    result.last();
+                    return result.getRow();
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     @Override
@@ -88,10 +104,10 @@ public class NotaRepository extends AbstractRepo<Integer, Nota> {
     public void deleteById(Integer integer) {
         String query = "delete from nota where id=?";
         Connection connection = dbConnection.getConnection();
-        
-        try(PreparedStatement preparedStatement = connection.prepareStatement(query)){
+
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, integer);
-            
+
             preparedStatement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -102,14 +118,14 @@ public class NotaRepository extends AbstractRepo<Integer, Nota> {
     public void delete(Nota nota) {
         deleteById(nota.getId());
     }
-    
-    public List<Nota> findByProbaId(Integer probaid){
-       List<Nota> list = new ArrayList<>();
+
+    public List<Nota> findByProbaId(Integer probaid) {
+        List<Nota> list = new ArrayList<>();
 
         Connection connection = dbConnection.getConnection();
         String query = "select * from nota where idProba=?";
 
-        try (PreparedStatement  preparedStatement = connection.prepareStatement(query)) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setInt(1, probaid);
 
             ResultSet set = preparedStatement.executeQuery();
@@ -126,15 +142,20 @@ public class NotaRepository extends AbstractRepo<Integer, Nota> {
         }
         return list;
     }
-    
-    public List<Nota> findByParticipantId(Integer participantId){
+
+    public List<Nota> sortByScore(List<Nota> list) {
+        Collections.sort(list);
+        return list;
+    }
+
+    public List<Nota> findByParticipantId(Integer participantId) {
         List<Nota> result = new ArrayList<>();
 
         Connection connection = dbConnection.getConnection();
         String query = "select * from nota where idParticipant=?";
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
-            preparedStatement.setInt(1, participantId);ea
+            preparedStatement.setInt(1, participantId);
 
             ResultSet set = preparedStatement.executeQuery();
             while (set.next()) {
@@ -143,13 +164,13 @@ public class NotaRepository extends AbstractRepo<Integer, Nota> {
                 int idProba = set.getInt("idProba");
                 double nota = set.getDouble("nota");
 
-                result.add( new Nota(id, idParticipant, idProba, nota));
+                result.add(new Nota(id, idParticipant, idProba, nota));
             }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return result;
     }
-    
-    
+
+
 }

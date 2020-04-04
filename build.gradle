@@ -16,5 +16,7 @@ repositories {
 }
 
 dependencies {
+    compile project("common")
     compile project("backend")
+    compile project("frontend")
 }

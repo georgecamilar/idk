@@ -32,7 +32,7 @@ public class Service {
 
     public Integer login(String username, String password) {
         if (arbiterRepository.findByUsername(username).getPassword().equals(password)) {
-            return arbiterRepository.findByUsername(username).getId();
+            return arbiterRepository.findByUsername(username).getProbaId();
         }
         return -1;
     }
@@ -45,6 +45,14 @@ public class Service {
             System.out.println(e.getMessage());
         }
         return null;
+    }
+
+    public void saveNota(int idParticipant, int idProba, Double grade) {
+        try {
+            this.notaRepository.save(new Nota(idParticipant, idProba, grade));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -112,6 +120,15 @@ public class Service {
         return result;
     }
 
+    public Integer getIdParticipant(String name){
+        try{
+            return participantRepository.findId(name);
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return -1;
+    }
+    
     public Nota saveNota(Nota nota) {
         try {
             return this.notaRepository.save(nota);
@@ -162,5 +179,9 @@ public class Service {
             list.add(participant);
         }
         return list;
+    }
+
+    public List<Nota> getRaportList(Integer id) {
+        return notaRepository.sortByScore(notaRepository.findByProbaId(id));
     }
 }

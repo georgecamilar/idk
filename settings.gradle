@@ -1,4 +1,5 @@
 rootProject.name = 'mpp'
 include 'backend'
 include 'frontend'
+include 'common'
 

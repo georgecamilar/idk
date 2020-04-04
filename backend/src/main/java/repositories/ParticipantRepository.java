@@ -51,6 +51,21 @@ public class ParticipantRepository extends AbstractRepo<Integer, Participant> {
 
         return participant;
     }
+    
+    public Integer findId(String name){
+        String query = "select * from participant where name=?";
+        Connection connection = dbConnection.getConnection();
+        try(PreparedStatement statement = connection.prepareStatement(query)){
+            statement.setString(1, name);
+            ResultSet set = statement.executeQuery();
+            if(set.next()){
+                return set.getInt("id");
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+        }
+        return -1;
+    }
 
     @Override
     public Iterable<Participant> findAll() {
