@@ -1,7 +1,5 @@
 package interfaces;
 
-import com.Request;
-import com.RequestType;
 import com.Response;
 import connection.ConnectionController;
 import javafx.collections.FXCollections;
@@ -16,7 +14,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import model.Nota;
 import model.Participant;
 
 import java.io.IOException;
@@ -121,11 +118,10 @@ public class MainController extends AnchorPane implements FrontendController {
 
 
     public void requestAdd(ActionEvent event) {
-        network.requestAdd(
-                Integer.parseInt(idField.getText()),
-                this.idUser,
-                Double.parseDouble(gradeField.getText())
-        );
+        Integer id = Integer.parseInt(gradeField.getText());
+        Double grade = Double.parseDouble(idField.getText());
+
+        network.requestAdd(id, this.idUser, grade);
     }
 
     public void addResponse(Response response) {

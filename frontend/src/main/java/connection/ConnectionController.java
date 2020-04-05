@@ -91,7 +91,8 @@ public class ConnectionController {
     }
 
     public void requestAdd(Integer participantId, Integer probaId, Double grade) {
-        Request request = new Request.Builder().type(RequestType.ADD).object(new Nota(participantId, probaId, grade)).build();
+        Request request = new Request.Builder().type(RequestType.ADD).
+                object(participantId + ";" + probaId + ";" + grade).build();
         try {
             output.writeObject(request);
             output.flush();

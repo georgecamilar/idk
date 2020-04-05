@@ -18,15 +18,14 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class SocketConcurrentServer {
     private ServerSocket server;
-    private LinkedBlockingQueue<Object> tasks;
-    protected List<ClientWorker> workers; //client workers are observers, the SocketConcurrentClass is the Observable
+    protected List<ClientWorker> workers = new ArrayList<>(); //client workers are observers, the SocketConcurrentClass is the Observable
     protected List<String> loggedIn;
 
     public SocketConcurrentServer(int port) {
         try {
+//            this.workers = new ArrayList<>();
             this.server = new ServerSocket(port);
             loggedIn = new ArrayList<>();
-            this.workers = new ArrayList<>();
             runServer();
         } catch (IOException e) {
             e.printStackTrace();
@@ -47,6 +46,8 @@ public class SocketConcurrentServer {
                 System.out.println("Client connected");
                 ClientWorker worker = new ClientWorker(socket, input, output);
                 this.workers.add(worker);
+                worker.setServerInstance(this);
+
                 Thread thread = new Thread(worker);
                 thread.start();
 
@@ -57,6 +58,13 @@ public class SocketConcurrentServer {
         }
     }
 
+    public void notifyAllClients(ClientWorker worker) {
+        for (ClientWorker element : this.workers) {
+            if (!element.equals(worker)) {
+                element.sendToClient();
+            }
+        }
+    }
 
 }
 
@@ -100,8 +108,15 @@ class ClientWorker implements Runnable, IObserver<ClientWorker> {
                 Response response = null;
                 switch (request.type()) {
                     case ADD:
-                        service.saveNota((Nota) request.content());
-                        response = new Response.Builder().type(ResponseType.SUCCESS).build();
+                        String recived = (String) request.content();
+                        String[] addFields = recived.split(";");
+                        Nota nota = new Nota(Integer.parseInt(addFields[0]), Integer.parseInt(addFields[1]), Double.parseDouble(addFields[2]));
+                        service.saveNota(nota);
+
+                        response = new Response.Builder().type(ResponseType.GETSCORES).object(service.getAllTotalScores()).build();
+                        serverInstance.notifyAllClients(this);
+                        output.writeObject(response);
+                        output.flush();
                         break;
                     case REPORT:
                         List<Nota> list = service.getRaportList((Integer) request.content());
@@ -114,8 +129,9 @@ class ClientWorker implements Runnable, IObserver<ClientWorker> {
                         String[] fields = content.split(";");
 
                         Integer result = service.login(fields[0], fields[1]);
-                        if (result > -1) {
-                        }
+//                        if (result > -1) {
+//                            serverInstance.workers.add(this);
+//                        }
 
                         response = new Response.Builder().type(ResponseType.LOGIN).object(result).build();
                         output.writeObject(response);
@@ -146,18 +162,17 @@ class ClientWorker implements Runnable, IObserver<ClientWorker> {
                     default:
                         break;
                 }
-            }catch(EOFException ex){
+            } catch (EOFException ex) {
                 ex.printStackTrace();
                 try {
                     this.output.close();
                     this.input.close();
                     client.close();
                 } catch (Exception exception) {
-                    System.err.println(exception.getMessage());
+                    exception.printStackTrace();
                 }
                 break;
-            }
-            catch (SocketException ex) {
+            } catch (SocketException ex) {
                 try {
                     client.close();
                 } catch (IOException e) {
@@ -169,9 +184,20 @@ class ClientWorker implements Runnable, IObserver<ClientWorker> {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             } catch (Exception ex) {
-                System.err.println(ex.getMessage());
+                ex.printStackTrace();
             }
 
+        }
+
+    }
+
+    public void sendToClient() {
+        Response response = new Response.Builder().type(ResponseType.GETSCORES).object(service.getAllTotalScores()).build();
+        try {
+            output.writeObject(response);
+            output.flush();
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
         }
     }
 
@@ -186,6 +212,14 @@ class ClientWorker implements Runnable, IObserver<ClientWorker> {
                 e.printStackTrace();
             }
         }
+    }
+
+    public SocketConcurrentServer getServerInstance() {
+        return serverInstance;
+    }
+
+    public void setServerInstance(SocketConcurrentServer serverInstance) {
+        this.serverInstance = serverInstance;
     }
 }
 
