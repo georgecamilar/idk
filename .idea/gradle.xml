@@ -12,7 +12,6 @@
             <option value="$PROJECT_DIR$/backend" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/frontend" />
-            <option value="$PROJECT_DIR$/networking" />
           </set>
         </option>
         <option name="useQualifiedModuleNames" value="true" />

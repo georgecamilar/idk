@@ -1,13 +1,10 @@
 package run;
 
-import interfaces.Controller;
+import interfaces.StartController;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import server.Server;
 import server.SocketConcurrentServer;
-
-import java.io.IOException;
 
 public class Run extends Application {
     public static void main(String[] args) {
@@ -28,7 +25,7 @@ public class Run extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Scene scene = new Scene(new Controller("localhost", 12345));
+        Scene scene = new Scene(new StartController("localhost", 12345));
         primaryStage.setTitle("Application");
         primaryStage.setScene(scene);
         primaryStage.show();

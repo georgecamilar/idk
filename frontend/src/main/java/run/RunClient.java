@@ -16,7 +16,8 @@ public class RunClient extends Application {
         ConnectionController connectionCtrl = new ConnectionController();
         StartController controller = new StartController("localhost", 12345);
         controller.setConnectionController(connectionCtrl);
-
+        connectionCtrl.setController(controller);
+        
         Scene scene = new Scene(controller);
         primaryStage.setTitle("Application");
         primaryStage.setScene(scene);

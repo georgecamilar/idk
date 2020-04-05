@@ -3,16 +3,12 @@ package interfaces;
 import com.Request;
 import com.RequestType;
 import com.Response;
-import com.ResponseType;
 import connection.ConnectionController;
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -111,13 +107,7 @@ public class MainController extends AnchorPane implements FrontendController {
     //functions for request and responses
 
     public void requestTotalScores() {
-        Request request = new Request.Builder().type(RequestType.GETSCORES).object(null).build();
-        try {
-            output.writeObject(request);
-            output.flush();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        network.requestGetAll();
     }
 
     public void responseTotalScores(Response response) {
@@ -130,20 +120,33 @@ public class MainController extends AnchorPane implements FrontendController {
     }
 
 
-    public void addButton(ActionEvent event) {
-
+    public void requestAdd(ActionEvent event) {
+        network.requestAdd(
+                Integer.parseInt(idField.getText()),
+                this.idUser,
+                Double.parseDouble(gradeField.getText())
+        );
     }
 
     public void addResponse(Response response) {
-
+        List<Participant> list = (List<Participant>) response.content();
+        this.dataSource.clear();
+        this.dataSource.addAll(list);
     }
 
-    public void getRaport(ActionEvent event) {
-
+    public void requestReport(ActionEvent event) {
+        System.out.println("Not implemented yet");
     }
 
     public void getRaportResponse(Response response) {
-
+        System.out.println("Not implemented yet");
     }
 
+    public ConnectionController getNetwork() {
+        return network;
+    }
+
+    public void setNetwork(ConnectionController network) {
+        this.network = network;
+    }
 }

@@ -8,12 +8,15 @@ import interfaces.FrontendController;
 import interfaces.MainController;
 import interfaces.StartController;
 import javafx.application.Platform;
+import model.Nota;
+import model.Participant;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.List;
 
 public class ConnectionController {
     private Socket socket;
@@ -77,6 +80,31 @@ public class ConnectionController {
         mainCtrl.responseTotalScores(response);
     }
 
+    public void requestGetAll() {
+        Request request = new Request.Builder().type(RequestType.GETSCORES).object("getScores").build();
+        try {
+            output.writeObject(request);
+            output.flush();
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+    public void requestAdd(Integer participantId, Integer probaId, Double grade) {
+        Request request = new Request.Builder().type(RequestType.ADD).object(new Nota(participantId, probaId, grade)).build();
+        try {
+            output.writeObject(request);
+            output.flush();
+        } catch (Exception ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
+
+    public void responseAdd(Response response) {
+        MainController mainController = (MainController) controller;
+        mainController.addResponse(response);
+    }
+
 
     class ReadThread implements Runnable {
 
@@ -86,11 +114,12 @@ public class ConnectionController {
             try {
                 while (!finished) {
                     Response response = (Response) input.readObject();
-                    if(response.type() == ResponseType.GETSCORES){
+                    if (response.type() == ResponseType.GETSCORES) {
                         Platform.runLater(() -> responseGetAll(response));
-                    }
-                    else if(response.type() == ResponseType.LOGIN){
-                        Platform.runLater(()->responseLogin(response));
+                    } else if (response.type() == ResponseType.LOGIN) {
+                        Platform.runLater(() -> responseLogin(response));
+                    } else if (response.type() == ResponseType.ADD) {
+                        Platform.runLater(() -> responseAdd(response));
                     }
                 }
             } catch (Exception ex) {
