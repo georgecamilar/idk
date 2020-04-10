@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -14,6 +15,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.Nota;
 import model.Participant;
 
 import java.io.IOException;
@@ -131,7 +133,16 @@ public class MainController extends AnchorPane implements FrontendController {
     }
 
     public void requestReport(ActionEvent event) {
-        System.out.println("Not implemented yet");
+        Integer id = this.idUser;
+        network.requestReport(id);
+    }
+
+    public void responseReport(Response response) {
+        List<Nota> list = (List<Nota>) response.content();
+        RaportController reportCtrl = new RaportController(list);
+        Stage st = new Stage();
+        st.setScene(new Scene(reportCtrl));
+        st.show();
     }
 
     public void getRaportResponse(Response response) {

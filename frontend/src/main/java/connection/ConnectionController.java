@@ -106,9 +106,24 @@ public class ConnectionController {
         mainController.addResponse(response);
     }
 
+    public void requestReport(Integer id) {
+        Request request = new Request.Builder().type(RequestType.REPORT).object(id).build();
+        try {
+            output.writeObject(request);
+            output.flush();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void responseReport(Response response) {
+        MainController mainController = (MainController) controller;
+        mainController.responseReport(response);
+
+    }
+
 
     class ReadThread implements Runnable {
-
 
         @Override
         public void run() {
@@ -121,6 +136,8 @@ public class ConnectionController {
                         Platform.runLater(() -> responseLogin(response));
                     } else if (response.type() == ResponseType.ADD) {
                         Platform.runLater(() -> responseAdd(response));
+                    } else if (response.type() == ResponseType.REPORT) {
+                        Platform.runLater(() -> responseReport(response));
                     }
                 }
             } catch (Exception ex) {
