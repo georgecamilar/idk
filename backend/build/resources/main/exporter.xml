@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--Service bean-->
+    
+    <bean id="myService" class="com.controller.ServiceImplementation">
+        <constructor-arg>
+            <props>
+                <prop key="db.url">jdbc:mysql://localhost:3306/mpp</prop>
+                <prop key="db.username">root</prop>
+                <prop key="db.password"></prop>
+            </props>
+        </constructor-arg>
+    </bean>
+    
+    <!-- Rmi Service Exporter -->
+    
+    <bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+        <property name="serviceName" value="MppService"/>
+        <property name="service" ref="myService"/>
+        <property name="serviceInterface" value="com.controller.Service"/>
+        <property name="servicePort" value="12345"/>
+    </bean>
+</beans>

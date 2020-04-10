@@ -5,18 +5,15 @@ import com.RequestType;
 import com.Response;
 import com.ResponseType;
 import interfaces.FrontendController;
-import interfaces.MainController;
-import interfaces.StartController;
+import interfaces.classic.MainController;
+import interfaces.classic.StartController;
 import javafx.application.Platform;
-import model.Nota;
-import model.Participant;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.List;
 
 public class ConnectionController {
     private Socket socket;

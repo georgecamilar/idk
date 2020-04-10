@@ -1,22 +1,43 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.5'
+    }
+}
+
 group 'mpp'
 version 1.0
 
 
 apply plugin: 'java'
 apply plugin: 'application'
-
+apply plugin: 'com.bmuschko.tomcat'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-mainClassName = 'run.Run'
+mainClassName = 'com.run.Run'
+
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    def tomcatVersion = '7.0.76'
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+}
+dependencies {
     compile project("common")
     compile project("backend")
     compile project("frontend")
+
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.5'
+
 }
